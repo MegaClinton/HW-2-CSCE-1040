@@ -2,6 +2,8 @@
 #define ACCOUNT_H
 
 #include <iostream>
+#include <iomanip>
+
 using namespace std;
 
 class Account
@@ -12,10 +14,11 @@ public:
     Account(const Account& origAccount);
     Account& operator=(const Account& origAccount);
 
-    Account& operator+=(Account& srcAcct);
+    virtual Account& operator+=(Account& srcAcct);
 
-    void Deposit(float transaction);
-    void Withdraw(float transaction);
+    virtual void Deposit(float transaction);
+
+    virtual void Withdraw(float transaction);
 
     int getId() const;
     void setId(int id);
@@ -24,10 +27,17 @@ public:
     float getBalance() const;
     void setBalance(float balance);
 
+    int getAccountType() const;
+
+    void setAccountType(int accountType);
+
+    virtual void PrintInfo();
+
 private:
     int* ID;
     string name;
     float balance;
+    int accountType;
 };
 
 #endif

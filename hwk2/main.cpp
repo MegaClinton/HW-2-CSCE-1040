@@ -6,8 +6,12 @@ int main()
     AccountSystem bank;
 
     cout << "Name: Clinton Nguyen\nEUID: cdn0116\nEmail: clintonnguyen@my.unt.edu\nCourse: CSCE 1040\nDepartment: Computer Science and Engineering\n" << endl;
+
+    bank.loadAccountSystem();
     do
     {
+        cout << endl;
+
         cout << endl;
 
         cout << "1. Add new account\n2. Deposit into account\n3. Withdraw from account\n4. Transfer into account\n5. Print a list of all accounts\n6. End transaction (Exit)\n" << endl;
@@ -45,6 +49,7 @@ int main()
             case(6): //exits program
             {
                 cout << "Thank you for running the program. Goodbye!" << endl;
+                bank.storeAccountSystem();
                 exit(1);
             }
             default: //entered an invalid choice
@@ -52,5 +57,6 @@ int main()
                 cout << "Error: Invalid selection. Enter a value between 1-6." << endl;
             }
         }
-    }while(true);
+    }
+    while(true);
 }

@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/clinton/CLionProjects/hwk2
+# Install script for directory: C:/Users/clinton/CLionProjects/HW-2-CSCE-1040/hwk2
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/clinton/CLionProjects/hwk2/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/clinton/CLionProjects/HW-2-CSCE-1040/hwk2/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

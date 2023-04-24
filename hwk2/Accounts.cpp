@@ -1,43 +1,107 @@
 #include "Accounts.h"
 
-Accounts::Accounts() //default constructor
+void Accounts::Add(Account* account)
 {
-    accounts = new Account[MAX_SIZE];
-    size = 0;
+    accounts.push_back(account);
 }
-Accounts::~Accounts() //destructor
+Account& Accounts::findID(const int ID)//returns reference of account based on ID
 {
-    delete []accounts;
-    size = 0;
-}
-void Accounts::Add(const Account& account)
-{
-    size++;
-    accounts[size - 1] = account;
-}
-Account& Accounts::findID(const int ID) const//returns reference of account based on ID
-{
-    for(int i = 0; i < size; i++)
+    for(auto & account : accounts)
     {
-        if(accounts[i].getId() == ID)
+        if(account->getId() == ID)
         {
-            return accounts[i];
+            return *account;
         }
     }
     throw;
 }
-Account& Accounts::at(const int i) const //returns reference of element in array
+Account& Accounts::at(const int i) //returns reference of element in array
 {
-    if(i >= 0 && i < size)
-    {
-        return accounts[i];
-    }
-    throw;
+    return *(accounts.at(i));
 }
 
 int Accounts::getSize() const
 {
-    return size;
+    return accounts.size();
+}
+
+void Accounts::loadAccounts() //read info from file and store inside vector
+{
+    ifstream fin;
+    fin.open("accounts.dat");
+    if(fin.fail())
+    {
+        cout << "Note: accounts.dat file not found." << endl;
+        return;
+    }
+    int size;
+    fin >> size;
+    for (int i = 0; i < size; i++)
+    {
+        int ID;
+        int accountType;
+        fin >> ID;
+        fin >> accountType;
+        if(accountType == 1)
+        {
+            AccountChecking* acc = new AccountChecking;
+            float transactionFee;
+            float balance;
+            string name;
+            fin >> transactionFee;
+            fin >> balance;
+            getline(fin >> ws,name);
+            acc->setId(ID);
+            acc->setAccountType(accountType);
+            acc->setTransactionFee(transactionFee);
+            acc->setBalance(balance);
+            acc->setName(name);
+            accounts.push_back(acc);
+        }
+        if(accountType == 2)
+        {
+            AccountSaving* acc = new AccountSaving;
+            float minimumBalance;
+            float balance;
+            string name;
+            fin >> minimumBalance;
+            fin >> balance;
+            getline(fin >> ws,name);
+            acc->setId(ID);
+            acc->setAccountType(accountType);
+            acc->setMinimumBalance(minimumBalance);
+            acc->setBalance(balance);
+            acc->setName(name);
+            accounts.push_back(acc);
+        }
+    }
+    fin.close();
+}
+void Accounts::storeAccounts() //write info from vector to file
+{
+    ofstream fout;
+    fout.open("accounts.dat");
+    if(fout.fail())
+    {
+        cout << "Note: accounts.dat file not found." << endl;
+        return;
+    }
+    fout << accounts.size() << endl;
+    for(auto &&account : accounts)
+    {
+        fout << account->getId() << " ";
+        fout << account->getAccountType() << " ";
+        if(account->getAccountType() == 1)
+        {
+            fout << dynamic_cast<AccountChecking*>(account)->getTransactionFee() << " ";
+        }
+        if(account->getAccountType() == 2)
+        {
+            fout << dynamic_cast<AccountSaving*>(account)->getMinimumBalance() << " ";
+        }
+        fout << fixed << setprecision(2) << account->getBalance() << " " << account->getName() << endl;
+    }
+    fout.close();
 }
 
 

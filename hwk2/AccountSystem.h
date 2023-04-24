@@ -12,6 +12,9 @@ public:
     void Transfer();
     void PrintAllAccounts();
 
+    void loadAccountSystem();
+    void storeAccountSystem();
+
 private:
     Accounts accts;
 };

@@ -1,5 +1,4 @@
 #include "AccountSystem.h"
-#include <iomanip>
 
 void AccountSystem::Add() //add account
 {
@@ -13,20 +12,56 @@ void AccountSystem::Add() //add account
             return;
         }
     }
-    Account account;
-    string name;
-    float deposit;
-    cout << "Enter customer account name: ";
-    cin.ignore();
-    getline(cin,name);
-    cout << "Enter initial deposit amount: $"; cin >> deposit;
-    cin.ignore();
+    int accountType;
+    cout << "Enter account type (1: checking, 2: saving): "; cin >> accountType;
+    if(accountType != 1 && accountType != 2)
+    {
+        cout << "Error: invalid account type. Account type (1: checking, 2: saving)" << endl;
+        return;
+    }
+    if(accountType == 1)
+    {
+        AccountChecking* account = new AccountChecking;
+        string name;
+        float deposit;
+        cout << "Enter customer account name: ";
+        cin.ignore();
+        getline(cin,name);
+        cout << "Enter initial deposit amount: $"; cin >> deposit;
+        float transactionFee;
+        cout << "Enter the transaction fee: $"; cin >> transactionFee;
+        cin.ignore();
 
-    account.setId(id);
-    account.setName(name);
-    account.setBalance(deposit);
-    accts.Add(account);
-    cout << "Added new account id " << account.getId() << " with initial balance $" << fixed << setprecision(2) << account.getBalance() << endl;
+        account->setId(id);
+        account->setName(name);
+        account->setBalance(deposit);
+        account->setTransactionFee(transactionFee);
+        account->setAccountType(accountType);
+        accts.Add(account);
+        cout << "Added new account id " << account->getId() << " with initial balance $" << fixed << setprecision(2) << account->getBalance() << endl;
+    }
+    else if(accountType == 2)
+    {
+        AccountSaving* account = new AccountSaving;
+        string name;
+        float deposit;
+        cout << "Enter customer account name: ";
+        cin.ignore();
+        getline(cin,name);
+        cout << "Enter initial deposit amount: $"; cin >> deposit;
+        float minimumBalance;
+        cout << "Enter the minimum balance: $"; cin >> minimumBalance;
+        cin.ignore();
+
+        account->setId(id);
+        account->setName(name);
+        account->setBalance(deposit);
+        account->setMinimumBalance(minimumBalance);
+        account->setAccountType(accountType);
+        accts.Add(account);
+        cout << "Added new account id " << account->getId() << " with initial balance $" << fixed << setprecision(2) << account->getBalance() << endl;
+    }
+
 }
 void AccountSystem::Deposit() //deposit into an account
 {
@@ -47,7 +82,6 @@ void AccountSystem::Deposit() //deposit into an account
                 cout << "Enter the deposit amount: $";
                 cin >> deposit;
                 accts.at(i).Deposit(deposit);
-                cout << "Deposited $" << fixed << setprecision(2) << deposit << " into account id " << accts.at(i).getId() << endl;
                 return;
             }
         }
@@ -80,7 +114,6 @@ void AccountSystem::Withdraw() //withdraw from an account
                 else
                 {
                     accts.at(i).Withdraw(withdraw);
-                    cout << "Withdrawn $" << fixed << setprecision(2) << withdraw << " from account id " << accts.at(i).getId() << endl;
                     return;
                 }
             }
@@ -132,11 +165,20 @@ void AccountSystem::PrintAllAccounts() //print all account info
     }
     else
     {
-        cout << "Acct\tName\tBalance" << endl;
+        cout << "Acct\tName\t\tBalance\t\tType\t\tFee/Min" << endl;
         cout << "----------------------------------------------------------" << endl;
         for(int i = 0; i < accts.getSize(); i++)
         {
-            cout << accts.at(i).getId() << "\t" << accts.at(i).getName() << "\t" << fixed << setprecision(2) << "$" << accts.at(i).getBalance() << endl;
+            accts.at(i).PrintInfo();
         }
     }
+}
+
+void AccountSystem::loadAccountSystem()
+{
+    accts.loadAccounts();
+}
+void AccountSystem::storeAccountSystem()
+{
+    accts.storeAccounts();
 }

@@ -39,7 +39,7 @@ include CMakeFiles/rules.ninja
 #############################################
 # Logical path to working directory; prefix for absolute paths.
 
-cmake_ninja_workdir = C$:/Users/clinton/CLionProjects/hwk2/cmake-build-debug/
+cmake_ninja_workdir = C$:/Users/clinton/CLionProjects/HW-2-CSCE-1040/hwk2/cmake-build-debug/
 # =============================================================================
 # Object build statements for EXECUTABLE target hwk2
 
@@ -49,26 +49,38 @@ cmake_ninja_workdir = C$:/Users/clinton/CLionProjects/hwk2/cmake-build-debug/
 
 build cmake_object_order_depends_target_hwk2: phony || CMakeFiles/hwk2.dir
 
-build CMakeFiles/hwk2.dir/main.cpp.obj: CXX_COMPILER__hwk2_Debug C$:/Users/clinton/CLionProjects/hwk2/main.cpp || cmake_object_order_depends_target_hwk2
+build CMakeFiles/hwk2.dir/main.cpp.obj: CXX_COMPILER__hwk2_Debug C$:/Users/clinton/CLionProjects/HW-2-CSCE-1040/hwk2/main.cpp || cmake_object_order_depends_target_hwk2
   DEP_FILE = CMakeFiles\hwk2.dir\main.cpp.obj.d
   FLAGS = -g -std=gnu++14
   OBJECT_DIR = CMakeFiles\hwk2.dir
   OBJECT_FILE_DIR = CMakeFiles\hwk2.dir
 
-build CMakeFiles/hwk2.dir/Account.cpp.obj: CXX_COMPILER__hwk2_Debug C$:/Users/clinton/CLionProjects/hwk2/Account.cpp || cmake_object_order_depends_target_hwk2
+build CMakeFiles/hwk2.dir/Account.cpp.obj: CXX_COMPILER__hwk2_Debug C$:/Users/clinton/CLionProjects/HW-2-CSCE-1040/hwk2/Account.cpp || cmake_object_order_depends_target_hwk2
   DEP_FILE = CMakeFiles\hwk2.dir\Account.cpp.obj.d
   FLAGS = -g -std=gnu++14
   OBJECT_DIR = CMakeFiles\hwk2.dir
   OBJECT_FILE_DIR = CMakeFiles\hwk2.dir
 
-build CMakeFiles/hwk2.dir/Accounts.cpp.obj: CXX_COMPILER__hwk2_Debug C$:/Users/clinton/CLionProjects/hwk2/Accounts.cpp || cmake_object_order_depends_target_hwk2
+build CMakeFiles/hwk2.dir/Accounts.cpp.obj: CXX_COMPILER__hwk2_Debug C$:/Users/clinton/CLionProjects/HW-2-CSCE-1040/hwk2/Accounts.cpp || cmake_object_order_depends_target_hwk2
   DEP_FILE = CMakeFiles\hwk2.dir\Accounts.cpp.obj.d
   FLAGS = -g -std=gnu++14
   OBJECT_DIR = CMakeFiles\hwk2.dir
   OBJECT_FILE_DIR = CMakeFiles\hwk2.dir
 
-build CMakeFiles/hwk2.dir/AccountSystem.cpp.obj: CXX_COMPILER__hwk2_Debug C$:/Users/clinton/CLionProjects/hwk2/AccountSystem.cpp || cmake_object_order_depends_target_hwk2
+build CMakeFiles/hwk2.dir/AccountSystem.cpp.obj: CXX_COMPILER__hwk2_Debug C$:/Users/clinton/CLionProjects/HW-2-CSCE-1040/hwk2/AccountSystem.cpp || cmake_object_order_depends_target_hwk2
   DEP_FILE = CMakeFiles\hwk2.dir\AccountSystem.cpp.obj.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles\hwk2.dir
+  OBJECT_FILE_DIR = CMakeFiles\hwk2.dir
+
+build CMakeFiles/hwk2.dir/AccountChecking.cpp.obj: CXX_COMPILER__hwk2_Debug C$:/Users/clinton/CLionProjects/HW-2-CSCE-1040/hwk2/AccountChecking.cpp || cmake_object_order_depends_target_hwk2
+  DEP_FILE = CMakeFiles\hwk2.dir\AccountChecking.cpp.obj.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles\hwk2.dir
+  OBJECT_FILE_DIR = CMakeFiles\hwk2.dir
+
+build CMakeFiles/hwk2.dir/AccountSaving.cpp.obj: CXX_COMPILER__hwk2_Debug C$:/Users/clinton/CLionProjects/HW-2-CSCE-1040/hwk2/AccountSaving.cpp || cmake_object_order_depends_target_hwk2
+  DEP_FILE = CMakeFiles\hwk2.dir\AccountSaving.cpp.obj.d
   FLAGS = -g -std=gnu++14
   OBJECT_DIR = CMakeFiles\hwk2.dir
   OBJECT_FILE_DIR = CMakeFiles\hwk2.dir
@@ -81,7 +93,7 @@ build CMakeFiles/hwk2.dir/AccountSystem.cpp.obj: CXX_COMPILER__hwk2_Debug C$:/Us
 #############################################
 # Link the executable hwk2.exe
 
-build hwk2.exe: CXX_EXECUTABLE_LINKER__hwk2_Debug CMakeFiles/hwk2.dir/main.cpp.obj CMakeFiles/hwk2.dir/Account.cpp.obj CMakeFiles/hwk2.dir/Accounts.cpp.obj CMakeFiles/hwk2.dir/AccountSystem.cpp.obj
+build hwk2.exe: CXX_EXECUTABLE_LINKER__hwk2_Debug CMakeFiles/hwk2.dir/main.cpp.obj CMakeFiles/hwk2.dir/Account.cpp.obj CMakeFiles/hwk2.dir/Accounts.cpp.obj CMakeFiles/hwk2.dir/AccountSystem.cpp.obj CMakeFiles/hwk2.dir/AccountChecking.cpp.obj CMakeFiles/hwk2.dir/AccountSaving.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\hwk2.dir
@@ -96,7 +108,7 @@ build hwk2.exe: CXX_EXECUTABLE_LINKER__hwk2_Debug CMakeFiles/hwk2.dir/main.cpp.o
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D C:\Users\clinton\CLionProjects\hwk2\cmake-build-debug && "C:\Program Files\JetBrains\CLion 2022.2.3\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  COMMAND = cmd.exe /C "cd /D C:\Users\clinton\CLionProjects\HW-2-CSCE-1040\hwk2\cmake-build-debug && "C:\Program Files\JetBrains\CLion 2022.2.3\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -107,7 +119,7 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D C:\Users\clinton\CLionProjects\hwk2\cmake-build-debug && "C:\Program Files\JetBrains\CLion 2022.2.3\bin\cmake\win\bin\cmake.exe" --regenerate-during-build -SC:\Users\clinton\CLionProjects\hwk2 -BC:\Users\clinton\CLionProjects\hwk2\cmake-build-debug"
+  COMMAND = cmd.exe /C "cd /D C:\Users\clinton\CLionProjects\HW-2-CSCE-1040\hwk2\cmake-build-debug && "C:\Program Files\JetBrains\CLion 2022.2.3\bin\cmake\win\bin\cmake.exe" --regenerate-during-build -SC:\Users\clinton\CLionProjects\HW-2-CSCE-1040\hwk2 -BC:\Users\clinton\CLionProjects\HW-2-CSCE-1040\hwk2\cmake-build-debug"
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -125,7 +137,7 @@ build hwk2: phony hwk2.exe
 # =============================================================================
 
 #############################################
-# Folder: C:/Users/clinton/CLionProjects/hwk2/cmake-build-debug
+# Folder: C:/Users/clinton/CLionProjects/HW-2-CSCE-1040/hwk2/cmake-build-debug
 
 build all: phony hwk2.exe
 

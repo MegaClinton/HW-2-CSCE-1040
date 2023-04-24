@@ -1,3 +1,3 @@
-C:/Users/clinton/CLionProjects/hwk2/cmake-build-debug/CMakeFiles/hwk2.dir
-C:/Users/clinton/CLionProjects/hwk2/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/clinton/CLionProjects/hwk2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/clinton/CLionProjects/HW-2-CSCE-1040/hwk2/cmake-build-debug/CMakeFiles/hwk2.dir
+C:/Users/clinton/CLionProjects/HW-2-CSCE-1040/hwk2/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/clinton/CLionProjects/HW-2-CSCE-1040/hwk2/cmake-build-debug/CMakeFiles/rebuild_cache.dir

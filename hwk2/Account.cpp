@@ -6,6 +6,7 @@ Account::Account() //default constructor
     *ID = -1;
     name = "unknown";
     balance = 0;
+    accountType = 0;
 }
 Account::~Account() //destructor
 {
@@ -17,6 +18,7 @@ Account::Account(const Account& origAccount) //copy constructor
     *ID = origAccount.getId();
     name = origAccount.getName();
     balance = origAccount.getBalance();
+    accountType = origAccount.getAccountType();
 }
 Account& Account::operator=(const Account& origAccount) //copy assignment
 {
@@ -27,6 +29,7 @@ Account& Account::operator=(const Account& origAccount) //copy assignment
         *ID = origAccount.getId();
         name = origAccount.getName();
         balance = origAccount.getBalance();
+        accountType = origAccount.getAccountType();
     }
     return *this;
 }
@@ -34,11 +37,13 @@ Account& Account::operator=(const Account& origAccount) //copy assignment
 void Account::Deposit(float transaction) //adds to balance
 {
     balance += transaction;
+    cout << "Deposited $" << fixed << setprecision(2) << transaction << " into account id " << getId() << endl;
 }
 
 void Account::Withdraw(float transaction) //subtracts from balance
 {
     balance -= transaction;
+    cout << "Withdrawn $" << fixed << setprecision(2) << transaction << " from account id " << getId() << endl;
 }
 
 Account& Account::operator+=(Account& srcAcct) //transfer operator
@@ -86,5 +91,21 @@ void Account::setBalance(float balance)
 {
     this->balance = balance;
 }
+
+int Account::getAccountType() const
+{
+    return accountType;
+}
+
+void Account::setAccountType(int accountType)
+{
+    this->accountType = accountType;
+}
+
+void Account::PrintInfo()
+{
+    cout << getId() << "\t" << getName() << "\t" << fixed << setprecision(2) << "$" << getBalance() << "\t";
+}
+
 
 

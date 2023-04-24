@@ -2,23 +2,25 @@
 #define ACCOUNTS_H
 
 #include "Account.h"
+#include <vector>
+#include <fstream>
+#include "AccountChecking.h"
+#include "AccountSaving.h"
 
 class Accounts
 {
 public:
-    Accounts();
-    ~Accounts();
-
-    void Add(const Account& account);
-    Account& findID(const int ID) const;
-    Account& at(const int i) const;
+    void Add(Account *account);
+    Account& findID(const int ID);
+    Account& at(const int i) ;
 
     int getSize() const;
 
+    void loadAccounts();
+    void storeAccounts();
 private:
-    const int MAX_SIZE = 1000;
-    Account* accounts;
-    int size;
+    //Account* accounts;
+    vector<Account*> accounts;
 };
 
 #endif
