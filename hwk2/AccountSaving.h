@@ -21,6 +21,8 @@ public:
 
     void PrintInfo();
 
+    void store(ofstream &fout);
+
 private:
     float minimumBalance;
 };

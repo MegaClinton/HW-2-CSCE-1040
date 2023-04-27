@@ -89,17 +89,7 @@ void Accounts::storeAccounts() //write info from vector to file
     fout << accounts.size() << endl;
     for(auto &&account : accounts)
     {
-        fout << account->getId() << " ";
-        fout << account->getAccountType() << " ";
-        if(account->getAccountType() == 1)
-        {
-            fout << dynamic_cast<AccountChecking*>(account)->getTransactionFee() << " ";
-        }
-        if(account->getAccountType() == 2)
-        {
-            fout << dynamic_cast<AccountSaving*>(account)->getMinimumBalance() << " ";
-        }
-        fout << fixed << setprecision(2) << account->getBalance() << " " << account->getName() << endl;
+        account->store(fout);
     }
     fout.close();
 }

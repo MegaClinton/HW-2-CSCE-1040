@@ -37,6 +37,30 @@ AccountChecking& AccountChecking::operator+=(Account& srcAcct) //transfer operat
     cout << "Successfully transferred amount $" << transfer - getTransactionFee() << " from source account ID " << srcAcct.getId() << " to destination account ID " << this->getId() << endl;
     return *this;
 }
+AccountChecking& AccountChecking::operator+=(AccountSaving& srcAcct)
+{
+    cout << "Enter the transfer amount: $";
+    float transfer;
+    cin >> transfer;
+    if(transfer > srcAcct.getBalance())
+    {
+        cout << "Not enough funds to transfer from account id " << srcAcct.getId() << endl;
+        return *this;
+    }
+    if((srcAcct.getBalance() - transfer) < srcAcct.getMinimumBalance())
+    {
+        cout << "Error: Failed to withdraw $" << transfer << "from account id due to minimum balance" << srcAcct.getId() << endl;
+        return *this;
+    }
+    else
+    {
+        srcAcct.Withdraw(transfer);
+        this->Deposit(transfer);
+        cout << "Successfully transferred amount $" << transfer  - getTransactionFee() << " from source account ID " << srcAcct.getId()
+             << " to destination account ID " << this->getId() << endl;
+        return *this;
+    }
+}
 
 void AccountChecking::Deposit(float transaction)
 {
@@ -61,4 +85,11 @@ void AccountChecking::PrintInfo()
 {
     Account::PrintInfo();
     cout << "Checking\t" << fixed << setprecision(2) << "$" << getTransactionFee() << endl;
+}
+
+void AccountChecking::store(ofstream& fout)
+{
+    Account::store(fout);
+    fout << getTransactionFee() << " ";
+    fout << fixed << setprecision(2) << getBalance() << " " << getName() << endl;
 }

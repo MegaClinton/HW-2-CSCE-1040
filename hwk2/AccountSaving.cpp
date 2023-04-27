@@ -21,6 +21,7 @@ AccountSaving& AccountSaving::operator=(const AccountSaving& origAccount) //copy
     }
     return *this;
 }
+
 AccountSaving& AccountSaving::operator+=(AccountSaving& srcAcct)
 {
     cout << "Enter the transfer amount: $";
@@ -81,4 +82,11 @@ void AccountSaving::PrintInfo()
 {
     Account::PrintInfo();
     cout << "Saving\t\t" << fixed << setprecision(2) << "$" << getMinimumBalance() << endl;
+}
+
+void AccountSaving::store(ofstream& fout)
+{
+    Account::store(fout);
+    fout << getMinimumBalance() << " ";
+    fout << fixed << setprecision(2) << getBalance() << " " << getName() << endl;
 }

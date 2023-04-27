@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <iomanip>
+#include <fstream>
 
 using namespace std;
 
@@ -32,6 +33,8 @@ public:
     void setAccountType(int accountType);
 
     virtual void PrintInfo();
+
+    virtual void store(ofstream& fout);
 
 private:
     int* ID;

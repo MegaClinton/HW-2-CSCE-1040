@@ -2,6 +2,7 @@
 #define ACCOUNTCHECKING_H
 
 #include "Account.h"
+#include "AccountSaving.h"
 
 class AccountChecking : public Account
 {
@@ -12,6 +13,7 @@ public:
     AccountChecking& operator=(const AccountChecking& origAccount);
 
     AccountChecking& operator+=(Account& srcAcct);
+    AccountChecking& operator+=(AccountSaving& srcAcct);
 
     void Deposit(float transaction);
     void Withdraw(float transaction);
@@ -20,6 +22,8 @@ public:
     void setTransactionFee(float transactionFee);
 
     void PrintInfo();
+
+    void store(ofstream &fout);
 
 private:
     float transactionFee;

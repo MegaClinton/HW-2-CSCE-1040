@@ -107,5 +107,11 @@ void Account::PrintInfo()
     cout << getId() << "\t" << getName() << "\t" << fixed << setprecision(2) << "$" << getBalance() << "\t";
 }
 
+void Account::store(ofstream& fout)
+{
+    fout << getId() << " ";
+    fout << getAccountType() << " ";
+}
+
 
 
